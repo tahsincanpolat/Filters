@@ -12,8 +12,8 @@ namespace Filters.Controllers
         [HandleError(ExceptionType = typeof (FormatException),View = "Hata")]
         public ActionResult Index()
         {
-            return View();
-           // throw new FormatException();  // Projede herhangi bir hata olduğunda sayfada gösterir. Buda kötü bir görüntüye sebep olur.
+            //return View();
+           throw new FormatException();  // Projede herhangi bir hata olduğunda sayfada gösterir. Buda kötü bir görüntüye sebep olur.
         }
     }
 }
