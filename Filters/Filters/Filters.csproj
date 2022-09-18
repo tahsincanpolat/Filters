@@ -168,6 +168,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Loglar.cshtml" />
     <Content Include="Views\Hata\Index.cshtml" />
+    <Content Include="Views\Shared\Hata.cshtml" />
+    <Content Include="Views\Hata\HandleException.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

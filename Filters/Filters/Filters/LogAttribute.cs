@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Filters.Filters
 {
-    public class LogAttribute : FilterAttribute, IActionFilter,IResultFilter
+    public class LogAttribute : FilterAttribute, IActionFilter,IResultFilter,IExceptionFilter
     {
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
@@ -29,6 +29,19 @@ namespace Filters.Filters
                 IslemTarihi = DateTime.Now,
                 Tip = "Önce"
             });
+        }
+
+        public void OnException(ExceptionContext filterContext)
+        {
+            LogVeri.Loglar.Add(new LogBilgi
+            {
+                Controller = filterContext.RouteData.Values["controller"].ToString(),
+                Action = filterContext.RouteData.Values["action"].ToString(),
+                IslemTarihi = DateTime.Now,
+                Tip= "Hata",
+                HataMesaj = filterContext.Exception.Message
+            }
+            );
         }
 
         public void OnResultExecuted(ResultExecutedContext filterContext)

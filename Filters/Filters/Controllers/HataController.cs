@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Filters.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,12 @@ namespace Filters.Controllers
         {
             //return View();
            throw new FormatException();  // Projede herhangi bir hata olduğunda sayfada gösterir. Buda kötü bir görüntüye sebep olur.
+        }
+        [Log]
+        public ActionResult HandleException()
+        {
+            //return View();
+            throw new FormatException(); 
         }
     }
 }
